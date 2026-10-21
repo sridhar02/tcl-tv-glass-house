@@ -1,0 +1,29 @@
+plugins { id 'com.android.application' }
+
+// Personal values live in launcher/local.properties (git-ignored), not in the repo.
+def localProps = new Properties()
+def localFile = rootProject.file('local.properties')
+if (localFile.exists()) localFile.withInputStream { localProps.load(it) }
+
+android {
+    namespace 'com.sridhar.glasshome'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'com.sridhar.glasshome'
+        minSdk 28
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+        resValue 'string', 'greeting_name', localProps.getProperty('greeting.name', '')
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    // Keep the font uncompressed so Typeface.Builder can map it from assets.
+    androidResources { noCompress 'ttf' }
+}
+
+dependencies {
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+}

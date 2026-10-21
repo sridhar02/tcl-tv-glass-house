@@ -1,0 +1,15 @@
+# Secrets and per-device data — never commit
+tools/adbkey
+tools/adbkey.pub
+tools/tv.local
+backup/
+shots/
+
+# Local toolchain / build output
+.venv/
+launcher/local.properties
+launcher/.gradle/
+launcher/build/
+launcher/app/build/
+.DS_Store
+*.apk

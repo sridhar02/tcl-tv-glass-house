@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Edit this file to personalise the home screen, then run ../tools/build_install.sh -->
+<resources>
+    <!-- Dock apps, left to right. Use package names (tools/tv shell 'pm list packages'). -->
+    <string-array name="dock_packages">
+        <item>com.google.android.youtube.tv</item>
+        <item>com.netflix.ninja</item>
+        <item>com.amazon.amazonvideo.livingroom</item>
+        <item>in.startv.hotstar</item>
+    </string-array>
+
+    <!-- The name in the greeting ("Good evening, Alex") is set in launcher/local.properties,
+         which is not committed:  greeting.name=Alex   (leave it out for no name). -->
+
+    <!-- Set to true and put your picture at res/drawable-nodpi/wallpaper.jpg to use a wallpaper
+         instead of the pitch-black background. -->
+    <bool name="use_wallpaper">false</bool>
+
+    <!-- Packages never shown in the app grid. -->
+    <string-array name="hidden_packages">
+        <item>com.sridhar.glasshome</item>
+        <item>com.android.tv.settings</item>
+        <item>com.google.android.tvlauncher</item>
+        <item>com.spocky.projengmenu</item>
+        <item>me.efesser.flauncher</item>
+        <!-- TCL apps this firmware re-enables at every boot, so disabling them doesn't stick. -->
+        <item>com.tcl.usercenter</item>
+        <item>com.tcl.notereminder</item>
+        <item>com.tcl.tv.tclhome_master</item>
+        <item>com.tcl.common.terminalmanagerplus</item>
+        <item>com.tcl.appstatecontroller</item>
+    </string-array>
+</resources>

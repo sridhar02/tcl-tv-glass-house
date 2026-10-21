@@ -1,0 +1,38 @@
+# Packages disabled on a TCL BeyondTV (Android TV 9). One per line; '#' starts a comment.
+# Used by tools/debloat.sh. Each is disabled with `pm disable-user --user 0` (never uninstalled)
+# and logged to backup/disabled_by_us.txt so tools/restore.sh can undo it.
+# Check each package on your own TV first: tools/tv shell 'dumpsys package <pkg>'
+
+# --- Telemetry / analytics
+com.tcl.bi                              # TCL analytics (BIService)
+com.tcl.common.terminalmanagerplus      # TCL device-management/telemetry service *
+com.google.android.feedback             # Google feedback reporter
+com.google.android.tv.bugreportsender   # bug-report uploader
+
+# --- TCL content, ads and messaging
+com.tcl.waterfall.overseas              # TCL content "waterfall" rows
+com.tcl.tv.tclhome_master               # TCL home content provider *
+com.tcl.tv.tclhome_passive              # TCL home content provider
+com.tcl.messagebox                      # TCL promo message box
+com.tcl.notereminder                    # TCL reminders/promos *
+com.tcl.usercenter                      # TCL account centre *
+android.autoinstalls.config.tcl.device  # Play auto-install of partner apps
+com.tcl.esticker                        # store-demo energy sticker
+com.tcl.assigncode                      # TCL code-assignment screen
+
+# --- Background extras
+com.tcl.tvweishi                        # TCL "TV guard" cleaner
+com.tcl.videocall                       # TCL video call
+
+# --- Firmware updates (optional: remove these two lines to keep updates)
+com.tcl.versionUpdateApp                # TCL system update
+com.tcl.rc.ota                          # remote-control firmware OTA
+
+# * This firmware re-enables these at every boot (updated system apps it re-scans).
+#   Glass Home hides them from its grid instead; see README "Firmware quirks".
+#
+# Kept on purpose: com.tcl.tv / com.tcl.tvinput (Live TV, HDMI, source menu), remote/Bluetooth
+# services, keyboards, Play Store + Play Services, Google Assistant + mic, Chromecast
+# (com.google.android.apps.mediashell), Miracast, and all streaming apps.
+# The stock launcher (com.google.android.tvlauncher) is disabled by tools/build_install.sh,
+# only after Glass Home is installed.
